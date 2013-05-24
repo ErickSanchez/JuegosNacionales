@@ -1,0 +1,57 @@
+@import url("admin.css");
+/* ========================================================================== */
+/* CSS Layouts                                                                */
+/* ========================================================================== */
+#dt_info{
+	border: 1px solid #eee;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+	#dt_info .notify-alert{text-align: left; margin-bottom: 8px}
+	#dt_info .btn{margin-top: 5px}
+#coordinator_info .group{padding-left: 20px}
+	#coordinator_info label{width:60px; float: left}
+	#coordinator_info .btn{float: none}
+#frm_formats, #frm_search{
+	padding: 5px;
+	background: #EDEFF4;
+	border: 1px solid #D2D9E7;
+	margin-bottom: 10px;
+}
+	#frm_formats input, #frm_formats label, #frm_formats select,
+	#frm_search input, #frm_search label, #frm_search select{
+		float: left;
+		margin-right: 15px;
+	}
+#state{float: none}
+#sport-resume td{font-size: 12px}
+#teams-area, #participants-area{padding-bottom: 10px}
+	#teams-area .notify-alert, #participants-area .notify-alert{text-align: left; margin-bottom: 20px}
+	#teams-area .btn, #participants-area .btn{float: none;}
+#team-info{margin: 10px 0; font-weight: bold}
+#frm_add-selection select, #frm_add-selection label, #frm_add-selection input{float: left}
+	#frm_add-selection label, #frm_add-selection label{width: 70px}
+		#frm_add-selection label.txt-med {width: 100px}
+	#frm_add-selection select{width: 200px; margin-right: 60px}
+	#frm_add-selection #ccl-confirm{margin-top: 25px}
+		#frm_add-selection #ccl-confirm label{width: 150px; margin-top: 5px}
+		#frm_add-selection #ccl-confirm input{width: 125px}
+	#frm_add-selection .btn{margin-top: 20px; float: none}
+/* ========================================================================== */
+/* CSS Styles                                                                 */
+/* ========================================================================== */
+.col2{margin-left: 5px}
+	.col2:first-child{margin-left: 0}
+.table-list{margin-bottom: 20px; font-size: small; border: 1px solid #ccc}
+	.table-list td{padding: 2px 5px 5px 5px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee}
+	.table-list th{padding: 5px 0; background: #fafafa; border: 1px solid #f5f5f5}
+	.table-list tr:hover{background: #DFECF7}
+		.table-list tr td:first-child{border-left: none}
+		.table-list tr:last-child td{border-bottom: none}
+	.table-list .notify-alert{font-size: 12px; padding-left: 26px; background-color: #fafafa}
+	.table-list a{color: #333; font-size: x-small; font-weight: bold; vertical-align: 10%; margin: 0 4px; float: left}
+		.table-list a:hover{color: #A62724}
+		.table-list a img{position: relative; top: 4px}
+	.table-list .coach, .table-list .coach:hover{color: #fff; background: #587D99}
+		.table-list .coach.not-set{background: #F28A44}
+		.table-list .coach a:hover{color: #fff}
