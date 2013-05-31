@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost:4567/';
+$config['base_url']	= '';
 /*
 |--------------------------------------------------------------------------
 | Index File
