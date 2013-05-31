@@ -8,10 +8,14 @@
       <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
       <meta NAME="ROBOTS" CONTENT="INDEX, ALL">
       <meta NAME="distribution" CONTENT="global">
-      <title><?php echo $title.' :: '.SITE_NAME;?></title>
-      <link rel="stylesheet" href="<?php echo base_url('css/Style.css');?>" type="text/css" />
-     <?php if(@$style) echo '<link  rel="stylesheet" href="'.base_url('css/'.$style).'" type="text/css" />';?>
-      <script type="text/javascript" src="<?php echo base_url('js/jquery-1.7.1.min.js');?>"></script>      
+      <title><?= $title.' :: '.SITE_NAME;?></title>
+      <!--link rel="stylesheet" href="<?= base_url('css/style.css');?>" type="text/css" /-->
+      <link rel="stylesheet/less" type="text/css" href="<?= base_url('css/less/style.less');?>" />
+     <?php 
+     	if(isset($style)) 
+     		echo '<link  rel="stylesheet" href="'.base_url('css/'.$style).'" type="text/css" />';
+     ?>
+      <script type="text/javascript" src="<?= base_url('js/jquery-1.7.1.min.js');?>"></script>      
 	  <?php if(isset($notification)){?>
 		<script>
 			$(document).ready(function() {
@@ -23,9 +27,11 @@
 			});
 		</script>
 	  <?php } ?>
-      <script type="text/javascript" src="<?php echo base_url('js/jquery.nivo.slider.pack.js');?>"></script>
-	  <link rel="stylesheet" href="<?php echo base_url('js/nivo-slider/default.css');?>" type="text/css" media="screen" />
-	  <link rel="stylesheet" href="<?php echo base_url('css/nivo-slider.css');?>" type="text/css" media="screen" />
+      <script type="text/javascript" src="<?= base_url('js/jquery.nivo.slider.pack.js');?>"></script>
+	  <link rel="stylesheet" href="<?= base_url('js/nivo-slider/default.css');?>" type="text/css" media="screen" />
+	  <link rel="stylesheet" href="<?= base_url('css/nivo-slider.css');?>" type="text/css" media="screen" />
+	  <script src="less.js" type="text/javascript"></script>
+
       <script type="text/javascript">	  
 		$(window).load(function() {
 			$('#slider').nivoSlider();
