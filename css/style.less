@@ -1,0 +1,37 @@
+@import "reset.css";
+
+@color_border_menu: #A62724;
+@base_url: 'http://localhost:4567';
+
+/* ===================================================== */
+/* Mixins                                               */
+/* =====================================================*/
+.border-radius(@val1: 5px; @val2: 0; @val3: 0; @val4: 0) {
+  	-webkit-border-radius: @val1 @val2 @val3 @val4;
+  	-moz-border-radius: @val1 @val2 @val3 @val4;
+  	-ms-border-radius: @val1 @val2 @val3 @val4;
+  	-o-border-radius: @val1 @val2 @val3 @val4;
+  	border-radius: @val1 @val2 @val3 @val4;
+}
+.box-shadow(@px: 10px; @color:#aaa) {
+	-moz-box-shadow: 0 0 @px @color; 
+	-webkit-box-shadow: 0 0 @px @color;
+	box-shadow: 0 0 @px @color;	
+}
+
+/* =======================================================*/
+/* CSS Layouts                                            */
+/* =======================================================*/
+body { background: url('../images/background-gray.png')  repeat-x center top #fff;}
+
+#body {
+	h3 { 
+		&:first-child { margin-top:0 }
+	}
+} 
+#container{
+	width: 100%; 
+	height: 100%;
+	padding: 50px 0 30px 0; 
+	background: url('../images/back-menu-bar.png') repeat-x left 125px
+}

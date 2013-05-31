@@ -4,17 +4,17 @@ class Login extends CI_Controller {
 
 	
 	function __construct(){
-		parent::__construct();
-		
+		parent::__construct();		
 		$this->load->helper('form');
 	}
+	
 	function index(){
             
 		if($this->session->userdata('logged_in'))
 			redirect('/login/redir_section/'.$this->session->userdata('userType'), 'refresh');
                 
 		$data['title']="Iniciar Sesión";
-		$data['style']="admin.css";
+		$data['style']="admin";
 		$data['content']="login";
 		$data['leftcolumn']="left-column";
 		$this->load->view('includes/template',$data);
@@ -65,7 +65,7 @@ class Login extends CI_Controller {
 			default: $notify = array('msg'=>'Error','type'=>'error'); break;
 		}
 		$data['title']="Iniciar Sesión";
-		$data['style']="admin.css";
+		$data['style']="admin";
 		$data['content']="login";
 		$data['notification']=$notify;
 		$data['leftcolumn']="left-column";

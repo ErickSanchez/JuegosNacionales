@@ -50,7 +50,7 @@ class Stateadmin extends CI_Controller {
 	$data['sports']=$this->stateadminmodel->get_sport($data['username']);
 
         $data['title']="Registro de Selecciones ";
-		$data['style']='state-admin.css';
+		$data['style']='state-admin';
 		$data['leftcolumn']="left-column-state";
         $data['content']="state-admin";
 		return $data;		
@@ -84,7 +84,7 @@ class Stateadmin extends CI_Controller {
 
         $data['team']=$this->teammodel->get_team_info($idteam);
         $data['sport']=$idsport;
-		$data['style']='state-admin.css';
+		$data['style']='state-admin';
 		$data['leftcolumn']="left-column-state";
 		return $data;	
 	}
