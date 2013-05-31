@@ -5,7 +5,7 @@
       <meta NAME="distribution" CONTENT="global"/>
       <title><?= $title.' :: '.SITE_NAME;?></title>      
       <link rel="stylesheet/less" type="text/css" href="<?= base_url('css/style.less');?>"  />
-     <!--?= isset($style) ?'<link  rel="stylesheet/less" type="text/css" href="'.base_url('css/'.$style.'.less').'" />': '';?-->
+     <?= isset($style) ?'<link  rel="stylesheet/less" type="text/css" href="'.base_url('css/'.$style.'.less').'" />': '';?>
       <script type="text/javascript" src="<?= base_url('js/less.js');?>"></script>      
       <script type="text/javascript" src="<?= base_url('js/jquery-1.7.1.min.js');?>"></script>      
 	  <?php if(isset($notification)){?>

@@ -1,22 +1,25 @@
-﻿@import url("admin.css");
-/* ========================================================================== */
-/* CSS Layouts                                                                */
-/* ========================================================================== */
-
+﻿@import "admin.less";
 
 /* ========================================================================== */
 /* CSS Styles                                                                 */
 /* ========================================================================== */
 .group{border: 1px solid #eee}
-.schedule{width: 100%; margin-top: 10px; font-size: 11px; background: #fafafa; border: 1px solid #eee}
-	.schedule .menu-sports{
+.schedule {
+	width: 100%; 
+	margin-top: 10px; 
+	font-size: 11px; 
+	background: #fafafa; 
+	border: 1px solid #eee;
+	.menu-sports{
 		padding: 10px 0;
 	}
-	.schedule th{background: #fcfcfc; color: #333; padding-bottom: 3px; border-bottom: 1px solid #f5f5f5}
-	.schedule td{padding: 0 4px 2px 4px}
-	.schedule tr:nth-child(odd){ background: #DFECF7}
-		.schedule tr:nth-child(even){ background-color:#fbfbfb}
-	.schedule .subtitle{
+	th{background: #fcfcfc; color: #333; padding-bottom: 3px; border-bottom: 1px solid #f5f5f5}
+	td{padding: 0 4px 2px 4px}
+	tr{
+		&:nth-child(odd){ background: #DFECF7}
+		&:nth-child(even){ background-color:#fbfbfb}
+	}
+	.subtitle{
 		color: #fff;
 		text-shadow: 0.1em 0.1em #A8231E;
 		font-size: small;
@@ -25,7 +28,7 @@
 		padding-top: 3px;
 		background: url('../images/back-menu-bar.png') repeat-x #495677;
 	}
-	.schedule .subtitle-2{
+	.subtitle-2{
 		color: #fff;
 		font-size: small;
 		font-weight: bold;
@@ -33,7 +36,7 @@
 		padding-top: 3px;
 		background: url('../images/back-black-gradient.jpg') repeat-x bottom left #495677;
 	}
-	.schedule .subtitle-3{
+	.subtitle-3{
 		color: #222;
 		font-size: small;
 		font-weight: bold;
@@ -41,8 +44,8 @@
 		padding-top: 3px;
 		background: #FFBF00;
 	}
-	.schedule .notify{text-align: center; padding: 5px; font-size: medium}
-	.schedule a{
+	.notify{text-align: center; padding: 5px; font-size: medium}
+	a{
 		color: #fff;
 		font-weight: bold;
 		position: relative;
@@ -52,3 +55,4 @@
 		padding: 1px 15px 1px 5px;
 		background: url('../images/plus2.png') no-repeat right center #333;
 	}
+}
