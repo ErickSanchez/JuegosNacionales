@@ -1,6 +1,6 @@
 @import "reset.css";
 
-@color_border_menu: #A62724;
+@base_url: 'http://localhost/JuegosNacionales/';
 
 .border-radius(@radius: 5px) {
   	-webkit-border-radius: @radius;
@@ -16,8 +16,7 @@
 }
 
 /* CSS Layouts */
-body { background: url('../images/background-gray.png')  repeat-x center top #fff;}
-
+body { background: url('@{base_url}images/background-gray.png')  repeat-x center top #fff;}
 #body {
 	h3 { 
 		&:first-child { margin-top:0 }
@@ -27,13 +26,7 @@ body { background: url('../images/background-gray.png')  repeat-x center top #ff
 	width: 100%; 
 	height: 100%;
 	padding: 50px 0 30px 0; 
-	background: url('../images/back-menu-bar.png') repeat-x left 125px
-}
-#header{
-	height: auto;
-		.wp-page{
-			height: 150px;
-		}
+	background: url('@{base_url}images/back-menu-bar.png') repeat-x left 125px
 }
 #left-column {
 	width: 180px; 
@@ -51,7 +44,7 @@ body { background: url('../images/background-gray.png')  repeat-x center top #ff
 		li{
 			padding: 3px 5px 3px 23px;
 			text-align: left; 
-			background: url('../images/bullet-menu.gif') no-repeat 4px 5px; 
+			background: url('@{base_url}images/bullet-menu.gif') no-repeat 4px 5px; 
 			border-top: 1px solid #f5f5f5;
 			border-bottom: 1px solid #fafafa;
 			&:first-child {
@@ -66,9 +59,9 @@ body { background: url('../images/background-gray.png')  repeat-x center top #ff
 #main-content{width: 714px; float: left; padding: 0 15px; margin-top:10px; border-left: 1px solid #eee}
 #menu-bar-nav{
 	height: 45px;
-	background: url('../images/back-menu-bar.png') repeat-x #495677;
-	border-top: 1px solid @color_border_menu;
-	border-bottom: 1px solid @color_border_menu;
+	background: url('@{base_url}images/back-menu-bar.png') repeat-x #495677;
+	border-top: 1px solid #A62724;
+	border-bottom: 1px solid #A62724;
 	li {
 		width: 25%;
 		padding-top: 15px;
@@ -96,7 +89,7 @@ body { background: url('../images/background-gray.png')  repeat-x center top #ff
 #menu-prefeco{
 	height: 65px; 
 	border-bottom: 1px solid #222; 
-	background: url('../images/back-black-gradient.jpg') repeat-x left top #111;
+	background: url('@{base_url}images/back-black-gradient.jpg') repeat-x left top #111;
 	#logo-prefeco {
 		float: left
 	}
@@ -112,12 +105,12 @@ body { background: url('../images/background-gray.png')  repeat-x center top #ff
 	padding: 15px 0; 
 	margin-bottom: 10px; 
 	cursor: pointer;
-	.error {
-		background: url('../images/ico-error.png') no-repeat left center #F7B16A; 
+	&.error {
+		background: url('@{base_url}images/ico-error.png') no-repeat left center #F7B16A; 
 		color: #fff; 
 		font-size: small
 	}
-	.ok { background: url('../images/ico-ok.png') no-repeat left center #AEE164 }
+	&.ok 	{ background: url('@{base_url}images/ico-ok.png') no-repeat left center #AEE164 }
 }
 #right-column {
 	width: 350px; 
@@ -130,7 +123,7 @@ body { background: url('../images/background-gray.png')  repeat-x center top #ff
 		h3 { margin-top: 0 }
 		li {
 			padding: 3px 5px 3px 23px; 
-			text-align: left; background: url('../images/bullet-menu.gif') no-repeat 4px 5px; 
+			text-align: left; background: url('@{base_url}images/bullet-menu.gif') no-repeat 4px 5px; 
 			border-bottom: 1px solid #eee; 
 			border-top: 1px solid #f5f5f5;
 			&:first-child { border-top: none }
@@ -159,9 +152,9 @@ body { background: url('../images/background-gray.png')  repeat-x center top #ff
 		float: left;
 		.username {
 			border-right: 1px solid #444; 
-			background: url(../images/ico-user.png) no-repeat left center
+			background: url('@{base_url}images/ico-user.png') no-repeat left center
 		}
-		.log-out { background: url(../images/ico-cancel.png) no-repeat left center}
+		.log-out { background: url('@{base_url}images/ico-cancel.png') no-repeat left center}
 		&:last-child { border-right: none }
 	}
 	a{
@@ -176,21 +169,25 @@ body { background: url('../images/background-gray.png')  repeat-x center top #ff
 	.box-shadow;
 }
 
-/* ========================================================================== */
-/* CSS Classes                                                                */
-/* ========================================================================== */
-a:link, a:hover, a:active, a:visited{text-decoration: none;}
+/* ======================*/
+/* CSS Classes           */
+/* ======================*/
+a{
+	&:a,&:hover,&:active,&:visited{
+		text-decoration: none;
+	}
+}
 h2{
 	color: #333;
 	letter-spacing: 0.1em;
 	position: relative;
 	border-bottom: 1px solid #f5f5f5;
 }
-.txt-big{width: 400px}
-.txt-med{width: 200px}
-.txt-small{width: 45px}
+.txt-big 		{ width: 400px}
+.txt-med 		{ width: 200px}
+.txt-small 		{ width: 45px}
+.banner-area 	{ margin: 5px 0}
 
-.banner-area{margin: 5px 0}
 .btn{
 	color: #fff;
 	text-shadow: 0.09em 0.09em #2F7D07;
@@ -198,20 +195,20 @@ h2{
 	font-weight: bold;
 	padding: 3px 10px;
 	border: 1px solid #44B50B;
-	background: url('../images/back-btn-green.png')  left center #6BC935;
+	background: url('@{base_url}images/back-btn-green.png')  left center #6BC935;
 	cursor: pointer;
     .border-radius(6px);
 }
-.clear{clear:both}
-.col2{width: 350px; float: left}
-.col3{width: 294px; float: left}
-.content{width: 950px; position: relative}
-.date-min{min-height: 16px; padding-left: 20px; background: url(../images/ico-date.png) no-repeat left center}
-.gray{color: #999}
-.headquarter{padding-left: 18px; background: url('../images/ico-flag.png') no-repeat left center}
-.help{color: #777; font-size: x-small}
-.menu {
-	a{color: #333}
+.clear 		  {clear:both}
+.col2 		  {width: 350px; float: left}
+.col3 		  {width: 294px; float: left}
+.content 	  {width: 960px; position: relative}
+.date-min 	  {min-height: 16px; padding-left: 20px; background: url('@{base_url}images/ico-date.png') no-repeat left center}
+.gray 		  {color: #999}
+.headquarter  {padding-left: 18px; background: url('@{base_url}images/ico-flag.png') no-repeat left center}
+.help 		  {color: #777; font-size: x-small}
+.menu         {
+				a { color: #333}
 }
 .menu-list{ 
 	li {
@@ -220,10 +217,10 @@ h2{
 		border-top: 1px solid #eee;
 		clear: both;
 	}
-	.btn{padding: 2px 5px; float: right}
+	.btn 	{padding: 2px 5px; float: right}
 }
 .menu-sports{
-	background: url('../images/back-gray-gradient.png') repeat-x left bottom #fff;
+	background: url('@{base_url}images/back-gray-gradient.png') repeat-x left bottom #fff;
 	border: 1px solid #eee;
 	li {
 		padding: 6px 0;
@@ -239,25 +236,20 @@ h2{
 		font-weight: bold;
 		&:hover{color: #DA251D}
 	}
-	.soccer {background: url('../images/ico-soccer.png') no-repeat 5px center}
-	.basket {background: url('../images/ico-basketball.png') no-repeat 3px center}
-	.volley {background: url('../images/ico-volley.png') no-repeat 3px center}
-	.other {background: url('../images/bullet-other.png') no-repeat 0px center}
+	.soccer  	{ background: url('@{base_url}images/ico-soccer.png') no-repeat 5px center}
+	.basket 	{ background: url('@{base_url}images/ico-basketball.png') no-repeat 3px center}
+	.volley 	{ background: url('@{base_url}images/ico-volley.png') no-repeat 3px center}
+	.other 		{ background: url('@{base_url}images/bullet-other.png') no-repeat 0px center}
 }
 
-.round {
-     .border-radius(6px);
-}
-.round-top {
-	.border-radius(6px);
-}
-.round-bottom{
-	.border-radius(6px);    
-}
+.round 			{ .border-radius(6px); }
+.round-top  	{ .border-radius(6px); }
+.round-bottom 	{ .border-radius(6px); }
+
 .section{
 	padding: 2px 2px 20px 2px;
 	margin-bottom: 10px;
-	background: url('../images/back-gray-gradient.png') repeat-x left bottom #fff;
+	background: url('@{base_url}images/back-gray-gradient.png') repeat-x left bottom #fff;
 	border: 1px solid #eee;
 }
 .section-title{
@@ -266,7 +258,7 @@ h2{
 	color: #fff;
 	text-align: left;
 	text-shadow: 0.09em 0.09em #000;
-	background: url('../images/back-black-gradient.jpg') repeat-x left bottom #333;
+	background: url('@{base_url}images/back-black-gradient.jpg') repeat-x left bottom #333;
 	border: 1px solid #222;
 	img { vertical-align: top }
 }
@@ -277,8 +269,8 @@ h2{
 	padding: 4px;
 	border: 1px solid #ccc;
 	border-top: none;
-	background: url('../images/back-gray-gradient.png') repeat-x left bottom #fff;	
+	background: url('@{base_url}images/back-gray-gradient.png') repeat-x left bottom #fff;	
 	li { float: left; margin-right: 1px}
 }
-.small{font-size: 11px}
-  .error{color:red; font-size: x-small; padding-top: 10px}
+.small 		{ font-size: 11px}
+.error 		{  color:red;  font-size: x-small; padding-top: 10px }

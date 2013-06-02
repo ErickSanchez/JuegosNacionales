@@ -145,19 +145,20 @@ class Stateadmin extends CI_Controller {
                                                     if(!$this->stateadminmodel->exist_team($data['state']->idstate, $_POST['campus'],$_POST['sport-category']))
                                                         {
 								$cct = $this->stateadminmodel->get_campus_cct($_POST['campus']);
-								$status=TRUE;
-								if(!strlen($cct->cct))
+								$status = TRUE;
+								if(!empty($cct->cct))
 									$this->stateadminmodel->set_campus_cct($_POST['campus'],$_POST['cct']);
 								else
-									if(strcmp($cct->cct,$_POST['cct'])){
+									if(isset($cct->cct) && strcmp($cct->cct,$_POST['cct'])){
 										$this->error(504);
 										$status = FALSE;
 									}
 								if($status){
 									$idteam = $this->stateadminmodel->add_team($_POST['campus'],$_POST['sport-category']); //agrega equipo
-									if($idteam->idteam){
+									if(isset($idteam->idteam)){
 										$team = $this->teammodel->get_team_info($idteam->idteam);
-										$this->create_user(2,$team);	//crea usuario para administracion de equipo
+										$this->create_user(2,$team);
+											//crea usuario para administracion de equipo
 									}
 									$data = $this->load_panel();
 									$notify = array('msg'=>'<b>Seleccion agregada correctamente.</b><br />Los datos de acceso al equipo se enviaron a '.$userMail,'type'=>'ok');
