@@ -3,7 +3,8 @@
 class Fixture extends CI_Controller {
 		public function index() {
 			if(ENVIRONMENT =='development') {
-			    $this->_user();
+			    $this->_usertype();
+				$this->_user();
 				
 				//$this->_anotador();
 				//$this->_city();
@@ -58,63 +59,52 @@ class Fixture extends CI_Controller {
 					)			
 				);
 				$this->db->insert_batch('event', $datos);
-				echo "Fixture realizad2o";
+				echo "Fixture realizado";
 		}
 		private function _user() {
 				$datos = array(
-					array(
-					'username' => 'kaka',
-					'iduserType' => '1',
+			array(	'username' => 'kaka',
+					'iduserType' => 1,
 					'userPassword' => md5('admin'),
 					'userEmail' => 'kaka@hotmail.com',
-					'userPhone' => '4568564551'
-					
-					),
-					array(
-					'username' => 'messi',
-					'iduserType' => '1',
+					'userPhone' => '4568564551'	),
+			array(	'username' => 'messi',
+					'iduserType' => 1,
 					'userPassword' => md5('admin'),
 					'userEmail' => 'messi@hotmail.com',
-					'userPhone' => '4568564552'					
-					),
-					array(
+					'userPhone' => '4568564545'	),
+			array(
 					'username' => 'ronaldo',
-					'iduserType' => '1',
+					'iduserType' => 1,
 					'userPassword' => md5('admin'),
-					'userEmail' => 'ronaldo@hotmail.com',
-					'userPhone' => '4568564553'					
-					),
-					array(
-					'username' => 'coordina1',
-					'iduserType' => '2',
+					'userEmail' => 'ranaldo@hotmail.com',
+					'userPhone' => '4568564566'	),
+			array(
+					'username' => 'figo',
+					'iduserType' => 2,
 					'userPassword' => md5('admin'),
-					'userEmail' => 'coordina1@hotmail.com',
-					'userPhone' => '4568564553'					
-					),
-					array(
-					'username' => 'coordina2',
-					'iduserType' => '2',
+					'userEmail' => 'figoa@hotmail.com',
+					'userPhone' => '4568564565'	),
+			array(
+					'username' => 'van persey',
+					'iduserType' => 2,
 					'userPassword' => md5('admin'),
-					'userEmail' => 'coordina1@hotmail.com',
-					'userPhone' => '4568564553'					
-					),
-					array(
-					'username' => 'coordina2',
-					'iduserType' => '2',
+					'userEmail' => 'van@hotmail.com',
+					'userPhone' => '4568564568'	),
+			array(
+					'username' => 'roney',
+					'iduserType' => 2,
 					'userPassword' => md5('admin'),
-					'userEmail' => 'coordina1@hotmail.com',
-					'userPhone' => '4568564553'					
-					),
-					array(
+					'userEmail' => 'roney@hotmail.com',
+					'userPhone' => '4568564551'	),
+			array(
 					'username' => 'admin',
-					'iduserType' => '3',
+					'iduserType' => 3,
 					'userPassword' => md5('admin'),
 					'userEmail' => 'admin@hotmail.com',
-					'userPhone' => '4568564553'					
-					)			
-				);
-				$this->db->insert_batch('user', $datos);
-				echo "Fixture realizad2o";
+					'userPhone' => '4568564555'	));
+				$this->db->insert_batch('user',$datos);
+				echo "<br/>Fixture Usuario realoizado<br/>";
 		}
 		private function _coordinador() {
 				$datos = array(
@@ -222,30 +212,7 @@ class Fixture extends CI_Controller {
 				$this->db->insert_batch('assignationvars', $datos);
 				echo "Fixture realizadoA2";
 		}
-		private function _sport() {
-				$datos = array(
-					array(
-					'idsport' => '1',
-					'sportName' => 'Futbol',
-					'sportParticipantsLimit' => '18',
-					'sportParticipantsMin' => '11'
-					),
-					array(
-					'idsport' => '2',
-					'sportName' => 'Basquetball',
-					'sportParticipantsLimit' => '12',
-					'sportParticipantsMin' => '6'
-					),
-					array(
-					'idsport' => '3',
-					'sportName' => 'Beisbol',
-					'sportParticipantsLimit' => '15',
-					'sportParticipantsMin' => '12'
-					)	
-				);
-				$this->db->insert_batch('sport', $datos);
-				echo "Fixture realizadoS1";
-		}
+		
 		private function _campus() {
 				$datos = array(
 					array(
@@ -333,7 +300,7 @@ class Fixture extends CI_Controller {
 					'lastName' => 'Mourinho3',
 					'sureName' => 'Mou3',
 					'firstName' => 'Jose3'
-					)
+					),
 					array(
 					'idparticipant' => '4',
 					'idteam' => '2',
@@ -355,7 +322,7 @@ class Fixture extends CI_Controller {
 					'lastName' => 'Bra3',
 					'sureName' => 'Ruso3',
 					'firstName' => 'Da3'
-					)
+					),
 					array(
 					'idparticipant' => '7',
 					'idteam' => '3',
@@ -403,7 +370,7 @@ class Fixture extends CI_Controller {
 					array(					
 					'idparticipantMeta' => '5',
 					'idparticipant' => '8'
-					)
+					),
 					array(
 					'idparticipantMeta' => '6',
 					'idparticipant' => '9'
@@ -421,11 +388,12 @@ class Fixture extends CI_Controller {
 							array('iduserType'=>3,
 								  'userTypeName'=>'Coordinador de Registro Nacional'));
 		
-			$this->db->insert_barch('usertype',$datos);
+			$this->db->insert_batch('usertype',$datos);
+			echo "Fistiure user Hecho";
 		}
 
 		private function _sport(){
-		$datos = array(
+					$datos = array(
 						array('idsport'=>1,
 							  'sportName'=>'FUTBOL',	
 							  'sportParticipantsLimit'=>20,	
@@ -443,7 +411,7 @@ class Fixture extends CI_Controller {
 							  'sportParticipantsLimit'=>1,
 							  'sportParticipantsMin'=>1));
 	
-		$this->db->insert_barch('sport',$datos);	
+		$this->db->insert_batch('sport',$datos);	
 	}
 	
 	private function _sportcategory(){
@@ -470,7 +438,7 @@ class Fixture extends CI_Controller {
 							  'idsport'=>4,
 							  'sportCategoryName'=>'ÚNICA'));
 	
-		$this->db->insert_barch('sportcategory',$datos);	
+		$this->db->insert_batch('sportcategory',$datos);	
 	}
 	
 	private function _state(){
@@ -488,7 +456,7 @@ class Fixture extends CI_Controller {
 							  'stateName'	   =>'DF',
 							  'idcoordinator'  =>4));
 	
-		$this->db->insert_barch('state',$state);	
+		$this->db->insert_batch('state',$state);	
 	}
 	
 	private function _team(){
@@ -503,7 +471,7 @@ class Fixture extends CI_Controller {
 							  'idcampus'         =>3,
 							  'idsportCategory'  =>2));
 	
-		$this->db->insert_barch('team',$team);	
+		$this->db->insert_batch('team',$team);	
 	}
 	
 	private function _groups(){
@@ -516,7 +484,7 @@ class Fixture extends CI_Controller {
 							  'groupName'  		 =>'A')
 						);
 	
-		$this->db->insert_barch('groups',$groups);	
+		$this->db->insert_batch('groups',$groups);	
 	}
 	
 	private function _participantathlete(){
@@ -534,8 +502,6 @@ class Fixture extends CI_Controller {
 						array('schoolEnrollment' =>'09120979',
 							  'idparticipant'  =>9));
 	
-		$this->db->insert_barch('participantathlete',$participantathlete);	
-	
-			
-		}
-?>
+		$this->db->insert_batch('participantathlete',$participantathlete);	
+	}
+}
