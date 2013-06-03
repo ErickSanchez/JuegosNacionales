@@ -3,6 +3,25 @@
 class Fixture extends CI_Controller {
 		public function index() {
 			if(ENVIRONMENT =='development') {
+				$this->db->truncate('annotator');
+				$this->db->truncate('event');
+				$this->db->truncate('address');
+				$this->db->truncate('participantmeta');
+				$this->db->truncate('participantathlete');
+				$this->db->truncate('participant');
+				$this->db->truncate('team');
+				$this->db->truncate('headquarters');
+				$this->db->truncate('assignation');
+				$this->db->truncate('assignationvars');
+				$this->db->truncate('groups');
+				$this->db->truncate('sportcategory');
+				$this->db->truncate('sport');
+				$this->db->truncate('campus');
+				$this->db->truncate('city');
+				$this->db->truncate('state');
+				$this->db->truncate('coordinator');
+				$this->db->truncate('user');
+				$this->db->truncate('usertype');
 			    $this->_usertype();
 				$this->_user();
 				$this->_coordinator();
@@ -12,12 +31,19 @@ class Fixture extends CI_Controller {
 				$this->_sport();
 				$this->_sportcategory();
 				$this->_groups();
+				echo "<br/>".$this->db->last_query();
 				$this->_assignationvars();
+				echo "<br/>".$this->db->last_query();
 				$this->_assignation();
+				echo "<br/>".$this->db->last_query();
 				$this->_headquarters();
+				echo "<br/>".$this->db->last_query();
 				$this->_team();
+				echo "<br/>".$this->db->last_query();
 				$this->_participant();
+				echo "<br/>".$this->db->last_query();
 				$this->_participantathlete();
+				echo "<br/>".$this->db->last_query();
 				$this->_participantmeta();
 				$this->_address();
 				$this->_event();
@@ -125,31 +151,25 @@ class Fixture extends CI_Controller {
 					'userEmail' => 'admin@hotmail.com',
 					'userPhone' => '4568564555'	));
 				$this->db->insert_batch('user',$datos);
-				echo "<br/>Fixture Usuario<br/>";
-				echo $this->db->last_query();
+				echo "<br/>Fixture Usuario";
 		}
 		private function _coordinator() {
 				$datos = array(
 					array(
-						'idcoordinador' => '1',
-						'username' => 'fc',
+						'idcoordinator' => '1',
+						'username' => 'figo',
 						'coordinatorName' => 'Fidel Castro'
 					),
 					array(
-						'idcoordinador' => '2',
-						'username' => 'dam',
+						'idcoordinator' => '2',
+						'username' => 'van persey',
 						'coordinatorName' => 'Maradona'
 					),
 					array(
-						'idcoordinador' => '3',
-						'username' => 'rm',
+						'idcoordinator' => '3',
+						'username' => 'roney',
 						'coordinatorName' => 'Rommel'
-					),
-					array(
-						'idcoordinador' => '4',
-						'username' => 'ht',
-						'coordinatorName' => 'Hiroito'
-					)								
+					)							
 				);
 				$this->db->insert_batch('coordinator', $datos);
 				echo "<br/> Fixture coordinator";
@@ -223,12 +243,12 @@ class Fixture extends CI_Controller {
 					array(
 					'idassignationvars' => '1',
 					'idgroup' => '1',
-					'assinationvarName' => 'prueba1'
+					'assignationvarName' => 'prueba1'
 					),
 					array(
 					'idassignationvars' => '2',
 					'idgroup' => '2',
-					'assinationvarName' => 'prueba2'
+					'assignationvarName' => 'prueba2'
 					)		
 				);
 				$this->db->insert_batch('assignationvars', $datos);
@@ -312,6 +332,7 @@ class Fixture extends CI_Controller {
 					array(
 					'idparticipant' => '2',
 					'idteam' => '1',
+					'usernameCoach' => null,
 					'lastName' => 'Mourinho2',
 					'sureName' => 'Mou2',
 					'firstName' => 'Jose2'
@@ -319,6 +340,7 @@ class Fixture extends CI_Controller {
 					array(					
 					'idparticipant' => '3',
 					'idteam' => '1',
+					'usernameCoach' => null,
 					'lastName' => 'Mourinho3',
 					'sureName' => 'Mou3',
 					'firstName' => 'Jose3'
@@ -334,6 +356,7 @@ class Fixture extends CI_Controller {
 					array(
 					'idparticipant' => '5',
 					'idteam' => '2',
+					'usernameCoach' => null,
 					'lastName' => 'Brailovski2',
 					'sureName' => 'Ruso2',
 					'firstName' => 'Daniel2'
@@ -341,12 +364,34 @@ class Fixture extends CI_Controller {
 					array(					
 					'idparticipant' => '6',
 					'idteam' => '2',
+					'usernameCoach' => null,
 					'lastName' => 'Bra3',
 					'sureName' => 'Ruso3',
 					'firstName' => 'Da3'
-					)	
-				);
+					),
+					array(
+					'idparticipant' => '7',
+					'idteam' => '3',
+					'usernameCoach' => 'messi',
+					'lastName' => 'Aguirre',
+					'sureName' => 'Vasco',
+					'firstName' => 'Javier'),
+					array(
+					'idparticipant' => '8',
+					'idteam' => '3',
+					'usernameCoach' => null,
+					'lastName' => 'Agui2',
+					'sureName' => 'Va2',
+					'firstName' => 'Ja2'),
+					array(					
+					'idparticipant' => '9',
+					'idteam' => '3',
+					'usernameCoach' => null,
+					'lastName' => 'Agui3',
+					'sureName' => 'Vasco3',
+					'firstName' => 'Ja3'));
 				$this->db->insert_batch('participant', $datos);
+				echo $this->db->last_query();
 				echo "<br/>Fixture participant";
 		}
 		private function _participantmeta() {
@@ -416,6 +461,7 @@ class Fixture extends CI_Controller {
 	}
 	
 	private function _sportcategory(){
+		//$this->db->truncate('sportcategory');
 		$datos = array(
 						array('idsportCategory'=>1,
 							  'idsport'=>1,	
@@ -434,9 +480,13 @@ class Fixture extends CI_Controller {
 							  'sportCategoryName'=>'VARONIL'),
 						array('idsportCategory'=>6,
 							  'idsport'=>3,
-							  'sportCategoryName'=>'FEMENIL'));
+							  'sportCategoryName'=>'FEMENIL'),
+						array('idsportCategory'=>7,
+							  'idsport'=>4,
+							  'sportCategoryName'=>'UNICA')
+						);
 	
-		$this->db->insert_batch('sportcategory',$datos);	
+		$this->db->insert_batch('sportcategory',$datos);
 		echo "<br/>Fixture sportcategory";
 	}
 	
@@ -450,10 +500,7 @@ class Fixture extends CI_Controller {
 							  'idcoordinator'  =>2),
 						array('idstate'		   =>3,
 							  'stateName'      =>'Mexico',
-							  'idcoordinator'  =>3),
-						array('idstate'		   =>4,
-							  'stateName'	   =>'DF',
-							  'idcoordinator'  =>4));
+							  'idcoordinator'  =>3));
 	
 		$this->db->insert_batch('state',$state);
 		echo "<br/>Fixture state";	
