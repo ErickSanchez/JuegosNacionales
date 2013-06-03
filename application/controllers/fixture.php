@@ -126,6 +126,7 @@ class Fixture extends CI_Controller {
 					'userPhone' => '4568564555'	));
 				$this->db->insert_batch('user',$datos);
 				echo "<br/>Fixture Usuario<br/>";
+				echo $this->db->last_query();
 		}
 		private function _coordinator() {
 				$datos = array(
@@ -343,28 +344,6 @@ class Fixture extends CI_Controller {
 					'lastName' => 'Bra3',
 					'sureName' => 'Ruso3',
 					'firstName' => 'Da3'
-					),
-					array(
-					'idparticipant' => '7',
-					'idteam' => '3',
-					'usernameCoach' => 'messi',
-					'lastName' => 'Aguirre',
-					'sureName' => 'Vasco',
-					'firstName' => 'Javier'
-					),
-					array(
-					'idparticipant' => '8',
-					'idteam' => '3',
-					'lastName' => 'Agui2',
-					'sureName' => 'Va2',
-					'firstName' => 'Ja2'
-					),
-					array(					
-					'idparticipant' => '9',
-					'idteam' => '3',
-					'lastName' => 'Agui3',
-					'sureName' => 'Vasco3',
-					'firstName' => 'Ja3'
 					)	
 				);
 				$this->db->insert_batch('participant', $datos);
@@ -455,10 +434,7 @@ class Fixture extends CI_Controller {
 							  'sportCategoryName'=>'VARONIL'),
 						array('idsportCategory'=>6,
 							  'idsport'=>3,
-							  'sportCategoryName'=>'FEMENIL'),
-						array('idsportrtCategory'=>7,
-							  'idsport'=>4,
-							  'sportCategoryName'=>'ÚNICA'));
+							  'sportCategoryName'=>'FEMENIL'));
 	
 		$this->db->insert_batch('sportcategory',$datos);	
 		echo "<br/>Fixture sportcategory";
