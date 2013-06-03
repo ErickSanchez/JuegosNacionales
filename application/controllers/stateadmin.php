@@ -13,7 +13,6 @@ class Stateadmin extends CI_Controller {
         $this->load->model('signupmodel');
         $this->load->model('usermodel');
     }
-    
 	public function index()
 	{
 		$data = $this->load_panel();

@@ -29,6 +29,62 @@ class Login extends CI_Controller {
 					default: redirect('/', 'refresh'); break;
 		}
 	}
+	public function insertar_usuarios() {
+		$this->load->database();
+		$usernameCoach= $this->input->post("usernameCoach");
+		$lastName= $this->input->post("lastName");
+		$suretName= $this->input->post("sureName");
+		$firstName= $this->input->post("firstName");
+		$datos = array(
+			'usernameCoach' => $usernameCoach,
+			'lastName' => $lastName,
+			'sureName' => $sureName,
+			'firstName' => $firstName
+		);
+		$this->db->insert('participant',$datos);
+	}
+	public function insertar_anotador() {
+		$this->load->database();
+		$idannotador= $this->input->post("idannotador");
+		$idevent= $this->input->post("idevent");
+		$idparticipant= $this->input->post("idparticipant");
+		$annotations= $this->input->post("annotations");
+		$minute= $this->input->post("minute");
+		$datos = array(
+			'idannotador' => $idannotador,
+			'idevent' => $idevent,
+			'idparticipant' => $idparticipant,
+			'annotations' => $annotations,
+			'minute' => $minute
+		);
+		$this->db->insert('annotator',$datos);
+	}
+	public function insertar_direccion() {
+		$this->load->database();
+		$addressStreet= $this->input->post("addressStreet");
+		$addressNumber= $this->input->post("addressNumber");
+		$addressInteriorNumber= $this->input->post("addressInteriorNumber");
+		$addressColony= $this->input->post("addressColony");
+		$addressZip= $this->input->post("addressZip");
+		$addressLocality= $this->input->post("addressLocality");
+		$addressTownship= $this->input->post("addressTownship");
+		$addressTown= $this->input->post("addressTown");
+		$addressState= $this->input->post("addressState");
+		$datos = array(
+			'addressStreet' => $addressStreet,
+			'addressNumber' => $addressNumber,
+			'addressInteriorNumber' => $addressInteriorNumber,
+			'addressColony' => $addressColony,
+			'addressZip' => $addressZip,
+			'addressLocality' => $addressLocality,
+			'addressTownship' => $addressTownship,
+			'addressTown' => $addressTown,
+			'addressState' => $addressState
+		);
+		$this->db->insert('address',$datos);
+		//$this->load->view("main/index");
+		//response.redirect "localhost/proyecto/index.php/";
+	}
 	
 	function signIn(){
             

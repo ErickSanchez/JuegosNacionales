@@ -30,7 +30,8 @@
       <script type="text/javascript" src="<?= base_url('js/jquery.nivo.slider.pack.js');?>"></script>
 	  <link rel="stylesheet" href="<?= base_url('js/nivo-slider/default.css');?>" type="text/css" media="screen" />
 	  <link rel="stylesheet" href="<?= base_url('css/nivo-slider.css');?>" type="text/css" media="screen" />
-	  <script src="less.js" type="text/javascript"></script>
+      <?php echo base_url('js/nivo-slider/default.css');?>
+	  <script src="<?= base_url('js/less.js');?>" type="text/javascript"></script>
 
       <script type="text/javascript">	  
 		$(window).load(function() {
