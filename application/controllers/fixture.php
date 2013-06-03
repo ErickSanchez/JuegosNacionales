@@ -8,23 +8,44 @@ class Fixture extends CI_Controller {
 				$this->_coordinator();
 				$this->_state();
 				$this->_city();
-				$this->_campus();								
+				$this->_campus();
+				$this->_sport();
+				$this->_sportcategory();
+				$this->_groups();
+				$this->_assignationvars();
+				$this->_assignation();
+				$this->_headquarters();
+				$this->_team();
+				$this->_participant();
+				$this->_participantathlete();
+				$this->_participantmeta();
+				$this->_address();
+				$this->_event();
+				$this->_annotator();
+																
 			}	
 		}
-		private function _annotador() {
+		private function _annotator() {
 				$datos = array(
 					array(
-					'idannotator' => 17,
-					'idevent' => '235',
-					'idparticipant' => '56',
+					'idannotator' => 1,
+					'idevent' => '1',
+					'idparticipant' => '2',
 					'annotations' => '2',
 					'minute' => '45'
 					),
+					array(
+					'idannotator' => 2,
+					'idevent' => '1',
+					'idparticipant' => '5',
+					'annotations' => '2',
+					'minute' => '45'
+					)
 				);
-				$this->load->library('table');
-				$this->table->generate($this->db->get('aannota'));
+				//$this->load->library('table');
+				//$this->table->generate($this->db->get('aannota'));
 				$this->db->insert_batch('annotator', $datos);
-				echo "Fixture realizado1";
+				echo "<br/>Fixture Anotador";
 		}
 		private function _city() {
 				$datos = array(
@@ -45,7 +66,7 @@ class Fixture extends CI_Controller {
 					)			
 				);
 				$this->db->insert_batch('city', $datos);
-				echo "Fixture realizad2o";
+				echo "<br/>Fixture city";
 		}
 		private function _event() {
 				$datos = array(
@@ -59,7 +80,7 @@ class Fixture extends CI_Controller {
 					)			
 				);
 				$this->db->insert_batch('event', $datos);
-				echo "Fixture realizado";
+				echo "<br/>Fixture Event";
 		}
 		private function _user() {
 				$datos = array(
@@ -104,7 +125,7 @@ class Fixture extends CI_Controller {
 					'userEmail' => 'admin@hotmail.com',
 					'userPhone' => '4568564555'	));
 				$this->db->insert_batch('user',$datos);
-				echo "<br/>Fixture Usuario realoizado<br/>";
+				echo "<br/>Fixture Usuario<br/>";
 		}
 		private function _coordinator() {
 				$datos = array(
@@ -130,7 +151,7 @@ class Fixture extends CI_Controller {
 					)								
 				);
 				$this->db->insert_batch('coordinator', $datos);
-				echo "Fixture realizadoC3";
+				echo "<br/> Fixture coordinator";
 		}
 		private function _address() {
 				$datos = array(
@@ -176,7 +197,7 @@ class Fixture extends CI_Controller {
 					)		
 				);
 				$this->db->insert_batch('address', $datos);
-				echo "Fixture realizadoA1";
+				echo "<br/>Fixture address";
 		}
 		private function _assignation() {
 				$datos = array(
@@ -194,7 +215,7 @@ class Fixture extends CI_Controller {
 					)		
 				);
 				$this->db->insert_batch('assignation', $datos);
-				echo "Fixture realizadoA2";
+				echo "<br/>Fixture assignation";
 		}
 		private function _assignationvars() {
 				$datos = array(
@@ -210,7 +231,7 @@ class Fixture extends CI_Controller {
 					)		
 				);
 				$this->db->insert_batch('assignationvars', $datos);
-				echo "Fixture realizadoA2";
+				echo "<br/>Fixture assignationvars";
 		}
 		
 		private function _campus() {
@@ -244,7 +265,7 @@ class Fixture extends CI_Controller {
 					)	
 				);
 				$this->db->insert_batch('campus', $datos);
-				echo "Fixture realizadoCA2";
+				echo "<br/>Fixture campus";
 		}
 		
 		private function _headquarters() {
@@ -275,7 +296,7 @@ class Fixture extends CI_Controller {
 					)	
 				);
 				$this->db->insert_batch('headquarters', $datos);
-				echo "Fixture realizadoCA2";
+				echo "<br/>Fixture headquarters";
 		}
 		private function _participant() {
 				$datos = array(
@@ -347,7 +368,7 @@ class Fixture extends CI_Controller {
 					)	
 				);
 				$this->db->insert_batch('participant', $datos);
-				echo "Fixture realizadoCA2";
+				echo "<br/>Fixture participant";
 		}
 		private function _participantmeta() {
 				$datos = array(
@@ -377,7 +398,7 @@ class Fixture extends CI_Controller {
 					)						
 				);
 				$this->db->insert_batch('participantmeta', $datos);
-				echo "Fixture realizadoCA2";
+				echo "<br/>Fixture participantmeta";
 		}
 		private function _usertype() {
 			$datos = array(
@@ -389,7 +410,7 @@ class Fixture extends CI_Controller {
 								  'userTypeName'=>'Coordinador de Registro Nacional'));
 		
 			$this->db->insert_batch('usertype',$datos);
-			echo "Fistiure user Hecho";
+			echo "<br/>Fixture usertype";
 		}
 
 		private function _sport(){
@@ -411,7 +432,8 @@ class Fixture extends CI_Controller {
 							  'sportParticipantsLimit'=>1,
 							  'sportParticipantsMin'=>1));
 	
-		$this->db->insert_batch('sport',$datos);	
+		$this->db->insert_batch('sport',$datos);
+		echo "<br/>Fixture sport";	
 	}
 	
 	private function _sportcategory(){
@@ -439,6 +461,7 @@ class Fixture extends CI_Controller {
 							  'sportCategoryName'=>'ÚNICA'));
 	
 		$this->db->insert_batch('sportcategory',$datos);	
+		echo "<br/>Fixture sportcategory";
 	}
 	
 	private function _state(){
@@ -456,7 +479,8 @@ class Fixture extends CI_Controller {
 							  'stateName'	   =>'DF',
 							  'idcoordinator'  =>4));
 	
-		$this->db->insert_batch('state',$state);	
+		$this->db->insert_batch('state',$state);
+		echo "<br/>Fixture state";	
 	}
 	
 	private function _team(){
@@ -471,7 +495,8 @@ class Fixture extends CI_Controller {
 							  'idcampus'         =>3,
 							  'idsportCategory'  =>2));
 	
-		$this->db->insert_batch('team',$team);	
+		$this->db->insert_batch('team',$team);
+		echo "<br/>Fixture team";	
 	}
 	
 	private function _groups(){
@@ -484,7 +509,8 @@ class Fixture extends CI_Controller {
 							  'groupName'  		 =>'A')
 						);
 	
-		$this->db->insert_batch('groups',$groups);	
+		$this->db->insert_batch('groups',$groups);
+		echo "<br/>Fixture groups";	
 	}
 	
 	private function _participantathlete(){
@@ -503,5 +529,6 @@ class Fixture extends CI_Controller {
 							  'idparticipant'  =>9));
 	
 		$this->db->insert_batch('participantathlete',$participantathlete);	
+		echo "<br/>Fixture particippanthtele";
 	}
 }
