@@ -1,3 +1,5 @@
+@base_url: 'http://localhost/JuegosNacionales/';
+
 /* =========================*/
 /* CSS Layouts              */
 /* =========================*/
@@ -37,16 +39,16 @@ input 	{margin-right: 20px}
 	border: 1px solid #fafafa;
 	b {padding-left: 3px}	
 }
-.notify-ok 		{background: url('../images/ico-tick.png') no-repeat 5px center #B9DE81; border: 1px solid #9FBF6F}
-.notify-info 	{background: url('../images/ico-info.png') no-repeat 5px center; color: #7FACD7}
-.notify-alert 	{background: url('../images/ico-alert.png') no-repeat 5px center; color: #EB8D00; padding-left: 23px;}
+.notify-ok 		{background: url('@{base_url}/images/ico-tick.png') no-repeat 5px center #B9DE81; border: 1px solid #9FBF6F}
+.notify-info 	{background: url('@{base_url}/images/ico-info.png') no-repeat 5px center; color: #7FACD7}
+.notify-alert 	{background: url('@{base_url}/images/ico-alert.png') no-repeat 5px center; color: #EB8D00; padding-left: 23px;}
 .section-title{
 	margin: 10px 0;
 	padding: 5px 10px;
 	color: #111;
 	text-align: left;
 	text-shadow: 0.09em 0.09em #ccc;
-	background: url('../images/back-gray-gradient.png') repeat-x left bottom #fff;
+	background: url('@{base_url}/images/back-gray-gradient.png') repeat-x left bottom #fff;
 	border: 1px solid #ccc;
 }
 
