@@ -5,10 +5,10 @@ class Fixture extends CI_Controller {
 			if(ENVIRONMENT =='development') {
 			    $this->_usertype();
 				$this->_user();
-				
-				//$this->_anotador();
-				//$this->_city();
-				
+				$this->_coordinator();
+				$this->_state();
+				$this->_city();
+				$this->_campus();								
 			}	
 		}
 		private function _annotador() {
@@ -106,7 +106,7 @@ class Fixture extends CI_Controller {
 				$this->db->insert_batch('user',$datos);
 				echo "<br/>Fixture Usuario realoizado<br/>";
 		}
-		private function _coordinador() {
+		private function _coordinator() {
 				$datos = array(
 					array(
 						'idcoordinador' => '1',
