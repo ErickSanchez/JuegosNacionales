@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class fixture extends CI_Controller {
+class Fixture extends CI_Controller {
 		public function index() {
 			if(ENVIRONMENT =='development') {
 			    $this->_user();
@@ -11,7 +11,6 @@ class fixture extends CI_Controller {
 			}	
 		}
 		private function _annotador() {
-				//$this->load->database();
 				$datos = array(
 					array(
 					'idannotator' => 17,
@@ -20,20 +19,6 @@ class fixture extends CI_Controller {
 					'annotations' => '2',
 					'minute' => '45'
 					),
-					/*array(
-					'idannotator' => 18,
-					'idevent' => '236',
-					'idparticipant' => '57',
-					'annotations' => '3',
-					'minute' => '46'					
-					),
-					array(
-					'idannotator' => 19,
-					'idevent' => '237',
-					'idparticipant' => '58',
-					'annotations' => '4',
-					'minute' => '47'
-					)*/			
 				);
 				$this->load->library('table');
 				$this->table->generate($this->db->get('aannota'));
@@ -41,7 +26,6 @@ class fixture extends CI_Controller {
 				echo "Fixture realizado1";
 		}
 		private function _city() {
-				//$this->load->database();
 				$datos = array(
 					array(
 					'idcity' => 1,
@@ -60,6 +44,20 @@ class fixture extends CI_Controller {
 					)			
 				);
 				$this->db->insert_batch('city', $datos);
+				echo "Fixture realizad2o";
+		}
+		private function _event() {
+				$datos = array(
+					array(
+					'idevent' => 1,
+					'idsportCategory' => '1',
+					'idheadquarters' => '1',
+					'idteamOne' => '1',
+					'idteamTwo' => '2',
+					'dateTimeEvent' => '2013-06-03 12:23:25',
+					)			
+				);
+				$this->db->insert_batch('event', $datos);
 				echo "Fixture realizad2o";
 		}
 		private function _user() {
@@ -414,6 +412,130 @@ class fixture extends CI_Controller {
 				$this->db->insert_batch('participantmeta', $datos);
 				echo "Fixture realizadoCA2";
 		}
+		private function _usertype() {
+			$datos = array(
+							array('iduserType'=>1,
+								  'userTypeName'=>'Coordinador de Equipo'),
+							array('iduserType'=>2,
+								  'userTypeName'=>'Coordinador Estatal'),
+							array('iduserType'=>3,
+								  'userTypeName'=>'Coordinador de Registro Nacional'));
 		
+			$this->db->insert_barch('usertype',$datos);
+		}
+
+		private function _sport(){
+		$datos = array(
+						array('idsport'=>1,
+							  'sportName'=>'FUTBOL',	
+							  'sportParticipantsLimit'=>20,	
+							  'sportParticipantsMin'=>11),	
+						array('idsport'=>2,
+							  'sportName'=>'BASQUETBOL',
+							  'sportParticipantsLimit'=>12,
+							  'sportParticipantsMin'=>9),
+						array('idsport'=>3,
+							  'sportName'=>'VOLEIBOL',
+							  'sportParticipantsLimit'=>14,
+							  'sportParticipantsMin'=>6),
+						array('idsport'=>4,
+							  'sportName'=>'AJEDREZ',
+							  'sportParticipantsLimit'=>1,
+							  'sportParticipantsMin'=>1));
+	
+		$this->db->insert_barch('sport',$datos);	
 	}
+	
+	private function _sportcategory(){
+		$datos = array(
+						array('idsportCategory'=>1,
+							  'idsport'=>1,	
+							  'sportCategoryName'=>'VARONIL'),	
+						array('idsportCategory'=>2,
+							  'idsport'=>1,
+							  'sportCategoryName'=>'FEMENIL'),
+						array('idsportCategory'=>3,
+							  'idsport'=>2,
+							  'sportCategoryName'=>'VARONIL'),
+						array('idsportCategory'=>4,
+							  'idsport'=>2,
+							  'sportCategoryName'=>'FEMENIL'),
+						array('idsportCategory'=>5,
+							  'idsport'=>3,
+							  'sportCategoryName'=>'VARONIL'),
+						array('idsportCategory'=>6,
+							  'idsport'=>3,
+							  'sportCategoryName'=>'FEMENIL'),
+						array('idsportrtCategory'=>7,
+							  'idsport'=>4,
+							  'sportCategoryName'=>'ÚNICA'));
+	
+		$this->db->insert_barch('sportcategory',$datos);	
+	}
+	
+	private function _state(){
+		$state = array(
+						array('idstate'		   =>1,
+							  'stateName'	   =>'Michoacan',	
+							  'idcoordinator'  =>1),	
+						array('idstate'		   =>2,
+							  'stateName'	   =>'Jalisco',
+							  'idcoordinator'  =>2),
+						array('idstate'		   =>3,
+							  'stateName'      =>'Mexico',
+							  'idcoordinator'  =>3),
+						array('idstate'		   =>4,
+							  'stateName'	   =>'DF',
+							  'idcoordinator'  =>4));
+	
+		$this->db->insert_barch('state',$state);	
+	}
+	
+	private function _team(){
+		$team = array(
+						array('idteam'		     =>1,
+							  'idcampus'	   	 =>1,	
+							  'idsportCategory'  =>1),	
+						array('idteam'		     =>2,
+							  'idcampus'	     =>2,
+							  'idsportCategory'  =>1),
+						array('idteam'		     =>3,
+							  'idcampus'         =>3,
+							  'idsportCategory'  =>2));
+	
+		$this->db->insert_barch('team',$team);	
+	}
+	
+	private function _groups(){
+		$groups = array(
+						array('idgroup'		     =>1,
+							  'idsportCategory'  =>1,	
+							  'groupName'  		 =>'A'),
+						array('idgroup'		     =>2,
+							  'idsportCategory'  =>2,	
+							  'groupName'  		 =>'A')
+						);
+	
+		$this->db->insert_barch('groups',$groups);	
+	}
+	
+	private function _participantathlete(){
+		$participantathlete = array(
+						array('schoolEnrollment' =>'09120972',
+							  'idparticipant'  =>2),
+						array('schoolEnrollment' =>'09120973',
+							  'idparticipant'  =>3),
+						array('schoolEnrollment' =>'09120975',
+							  'idparticipant'  =>5),
+						array('schoolEnrollment' =>'09120976',
+							  'idparticipant'  =>6),
+						array('schoolEnrollment' =>'09120978',
+							  'idparticipant'  =>8),
+						array('schoolEnrollment' =>'09120979',
+							  'idparticipant'  =>9));
+	
+		$this->db->insert_barch('participantathlete',$participantathlete);	
+	
+			
+		}
 ?>
