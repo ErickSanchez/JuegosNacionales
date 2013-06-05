@@ -14,6 +14,12 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
+            $username = array(
+                'type'           => 'varchar',
+                'constraint'     => 25,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $coordinatorName = array(
                 'type'       => 'varchar',
                 'constraint' => 250,
@@ -21,6 +27,7 @@ include_once('mymigration.php');
 
             $fields = array(
                 'idcoordinator' => $idcoordinator,
+                'username' => $username,
                 'coordinatorName' => $coordinatorName);
 
             $config = array(

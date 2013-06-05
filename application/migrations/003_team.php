@@ -14,8 +14,22 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
+            $idcampus = array(
+                'type'       => 'char',
+                'constraint' => 9,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
+            $idsportCategory = array(
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $fields = array(
-                'idteam'    => $idteam
+                'idteam'    => $idteam,
+                'idcampus'    => $idcampus,
+                'idsportCategory'    => $idsportCategory
                 );
 
             $config = array(

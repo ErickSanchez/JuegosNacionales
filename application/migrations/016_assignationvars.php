@@ -14,6 +14,12 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
+            $idgroup = array(
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $assignationvarName = array(
                 'type'       => 'char',
                 'constraint' => 2,
@@ -21,6 +27,7 @@ include_once('mymigration.php');
 
             $fields = array(
                 'idassignationvars' => $idassignationvars,
+                'idgroup' => $idgroup,
                 'assignationvarName' => $assignationvarName);
 
             $config = array(

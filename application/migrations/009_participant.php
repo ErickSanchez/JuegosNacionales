@@ -14,6 +14,18 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
+            $idteam = array(
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
+            $usernameCoach = array(
+                'type'           => 'varchar',
+                'constraint'     => 25,
+                'unsigned'       => TRUE,
+                'null'           => TRUE);
+
             $lastName = array(
                 'type'       => 'varchar',
                 'constraint' => 45);
@@ -28,6 +40,8 @@ include_once('mymigration.php');
 
             $fields = array(
                 'idparticipant' => $idparticipant,
+                'idteam'        => $idteam,
+                'usernameCoach' => $usernameCoach,
                 'lastName' => $lastName,
                 'sureName' => $sureName,
                 'firstName' => $firstName);

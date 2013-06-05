@@ -14,6 +14,12 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
+            $idparticipant = array(
+                'type'           => 'int',
+                'constraint'     => 10,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $birthdate = array(
                 'type'       => 'date',
                 'null'       => TRUE);
@@ -80,6 +86,7 @@ include_once('mymigration.php');
 
             $fields = array(
                 'idparticipantMeta' => $idparticipantMeta,
+                'idparticipant' => $idparticipant,
                 'birthdate' => $birthdate,
                 'phone' => $phone,
                 'cellphone' => $cellphone,

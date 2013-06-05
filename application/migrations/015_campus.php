@@ -14,6 +14,12 @@ include_once('mymigration.php');
                 'auto_increment' => FALSE,
                 'primary_key'    => TRUE);
 
+            $idcity = array(
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $campusName = array(
                 'type'       => 'varchar',
                 'constraint' => 45);
@@ -40,6 +46,7 @@ include_once('mymigration.php');
 
             $fields = array(
                 'idcampus' => $idcampus,
+                'idcity' => $idcity,
                 'campusName' => $campusName,
                 'campusPhone' => $campusPhone,
                 'campusDirectorName' => $campusDirectorName,

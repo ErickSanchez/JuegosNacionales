@@ -14,12 +14,19 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
+            $idstate = array(
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $cityName = array(
                 'type'       => 'varchar',
                 'constraint' => 45);
 
             $fields = array(
                 'idcity' => $idcity,
+                'idstate' => $idstate,
                 'cityName' => $cityName);
 
             $config = array(
