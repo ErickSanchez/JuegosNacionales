@@ -115,7 +115,7 @@ class Login extends CI_Controller {
 	
 	function error($iderror){
 		switch($iderror){
-			case 101: $notify = array('msg'=>'Ingrese un Usuario y una Contraseña','type'=>'error'); break;
+			case 101: $notify = array('msg'=>'Ingrese un Usuario y una Contrraseña','type'=>'error'); break;
 			case 102: $notify = array('msg'=>'Usuario o contraseña incorrectos','type'=>'error'); break;
 			case 103: $notify = array('msg'=>'Coordinador de estado no registrado','type'=>'error'); break;
 			default: $notify = array('msg'=>'Error','type'=>'error'); break;

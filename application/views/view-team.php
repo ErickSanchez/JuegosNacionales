@@ -46,7 +46,7 @@
 				<td>'.$row->jerseyNumber.'</td>
 				<td>'.$row->lastName.' '.$row->sureName.' '.$row->firstName.'</td>
 				<td align="center">'.$row->semester.'</td>
-				<td align="center">'.$row->groupParticipant.'</td>
+				<td align="center">'.$row->group.'</td>
 				<td align="center">'.$row->schoolEnrollment.'</td>
 				<td class="action">';
                         
