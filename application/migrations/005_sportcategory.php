@@ -18,9 +18,17 @@ include_once('mymigration.php');
                 'type'       => 'varchar',
                 'constraint' => 7);
 
+            $idsport = array(
+                'type'           => 'int',
+                'constraint'     => 1,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $fields = array(
                 'idsportCategory'    => $idsportCategory,
-                'sportCategoryName'  => $sportCategoryName);
+                'idsport'  => $idsport,
+                'sportCategoryName'    => $sportCategoryName
+                );
 
             $config = array(
                 'table'  => $table,

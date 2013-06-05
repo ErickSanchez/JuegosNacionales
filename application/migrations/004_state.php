@@ -18,9 +18,16 @@ include_once('mymigration.php');
                 'type'       => 'varchar',
                 'constraint' => 45);
 
+            $idcoordinator = array(
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => TRUE,
+                'null'           => TRUE);
+
             $fields = array(
                 'idstate'    => $idstate,
-                'stateName'  => $stateName);
+                'stateName'    => $stateName,
+                'idcoordinator'  => $idcoordinator);
 
             $config = array(
                 'table'  => $table,

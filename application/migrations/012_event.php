@@ -14,6 +14,18 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
+            $idsportCategory = array(
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
+            $idheadquarters = array(
+                'type'           => 'int',
+                'constraint'     => 11,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $idteamOne = array(
                 'type'       => 'int',
                 'constraint' => 11,
@@ -30,6 +42,8 @@ include_once('mymigration.php');
 
             $fields = array(
                 'idevent' => $idevent,
+                'idsportCategory' => $idsportCategory,
+                'idheadquarters' => $idheadquarters,
                 'idteamOne' => $idteamOne,
                 'idteamTwo' => $idteamTwo,
                 'dateTimeEvent' => $dateTimeEvent);

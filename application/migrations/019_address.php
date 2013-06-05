@@ -14,6 +14,12 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
+            $idparticipant = array(
+                'type'           => 'int',
+                'constraint'     => 10,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $addressStreet = array(
                 'type'       => 'varchar',
                 'constraint' => 100,
@@ -61,6 +67,7 @@ include_once('mymigration.php');
 
             $fields = array(
                 'idaddress' => $idaddress,
+                'idparticipant' => $idparticipant,
                 'addressStreet' => $addressStreet,
                 'addressNumber' => $addressNumber,
                 'addressInteriorNumber' => $addressInteriorNumber,

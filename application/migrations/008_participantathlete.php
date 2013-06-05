@@ -11,6 +11,12 @@ include_once('mymigration.php');
                 'constraint' => 15,
                 'primary_key' 	 => TRUE);
 
+            $idparticipant = array(
+                'type'           => 'int',
+                'constraint'     => 10,
+                'unsigned'       => TRUE,
+                'null'           => FALSE);
+
             $jerseyNumber = array(
                 'type'       => 'int',
                 'constraint' => 3,
@@ -69,6 +75,7 @@ include_once('mymigration.php');
             $fields = array(
 
             	'schoolEnrollment' 		=> $schoolEnrollment,
+                'idparticipant'         => $idparticipant,                
 				'jerseyNumber' 			=> $jerseyNumber,
 				'semester' 				=> $semester,
 				'group' 				=> $group,
