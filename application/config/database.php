@@ -45,17 +45,17 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'test';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'root';
+$db['default']['password'] = 'admin';
 $db['default']['database'] = "juegosnacionales";
 $db['default']['dbdriver'] = "mysql";
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = FALSE;
-$db['default']['db_debug'] = FALSE;
+$db['default']['db_debug'] = TRUE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
 $db['default']['char_set'] = 'utf8';
@@ -65,5 +65,20 @@ $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
 
+$db['test']['hostname'] = 'localhost';
+$db['test']['username'] = 'root';
+$db['test']['password'] = 'admin';
+$db['test']['database'] = "juegosnacionales_test";
+$db['test']['dbdriver'] = "mysql";
+$db['test']['dbprefix'] = '';
+$db['test']['pconnect'] = FALSE;
+$db['test']['db_debug'] = TRUE;
+$db['test']['cache_on'] = FALSE;
+$db['test']['cachedir'] = '';
+$db['test']['char_set'] = 'utf8';
+$db['test']['dbcollat'] = 'utf8_general_ci';
+$db['test']['swap_pre'] = '';
+$db['test']['autoinit'] = TRUE;
+$db['test']['stricton'] = FALSE;
 /* End of file database.php */
 /* Location: ./application/config/database.php */

@@ -9,8 +9,7 @@
       <meta NAME="ROBOTS" CONTENT="INDEX, ALL">
       <meta NAME="distribution" CONTENT="global">
       <title><?= $title.' :: '.SITE_NAME;?></title>
-      <!--link rel="stylesheet" href="<?= base_url('css/style.css');?>" type="text/css" /-->
-      <link rel="stylesheet/less" type="text/css" href="<?= base_url('css/less/style.less');?>" />
+      <link rel="stylesheet" href="<?= base_url('css/style.css');?>" type="text/css" />
      <?php 
      	if(isset($style)) 
      		echo '<link  rel="stylesheet" href="'.base_url('css/'.$style).'" type="text/css" />';
