@@ -1,8 +1,8 @@
 ﻿@import "admin.less";
-
-/* ========================================================================== */
-/* CSS Styles                                                                 */
-/* ========================================================================== */
+@base_url: 'http://localhost/JuegosNacionales/';
+/* =================================*/
+/* CSS Styles                       */
+/* =================================*/
 .group{border: 1px solid #eee}
 .schedule {
 	width: 100%; 
@@ -26,7 +26,7 @@
 		font-weight: bold;
 		padding-left: 10px;
 		padding-top: 3px;
-		background: url('../images/back-menu-bar.png') repeat-x #495677;
+		background: url('@{base_url}images/back-menu-bar.png') repeat-x #495677;
 	}
 	.subtitle-2{
 		color: #fff;
@@ -34,7 +34,7 @@
 		font-weight: bold;
 		padding-left: 10px;
 		padding-top: 3px;
-		background: url('../images/back-black-gradient.jpg') repeat-x bottom left #495677;
+		background: url('@{base_url}images/back-black-gradient.jpg') repeat-x bottom left #495677;
 	}
 	.subtitle-3{
 		color: #222;
@@ -53,6 +53,6 @@
 		margin-right: 5px;
 		float: right;
 		padding: 1px 15px 1px 5px;
-		background: url('../images/plus2.png') no-repeat right center #333;
+		background: url('@{base_url}images/plus2.png') no-repeat right center #333;
 	}
 }

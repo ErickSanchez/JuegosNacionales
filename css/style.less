@@ -2,12 +2,12 @@
 
 @base_url: 'http://localhost/JuegosNacionales/';
 
-.border-radius(@radius: 5px) {
-  	-webkit-border-radius: @radius;
-  	-moz-border-radius: @radius;
-  	-ms-border-radius: @radius;
-  	-o-border-radius: @radius;
-  	border-radius: @radius;
+.border-radius(@val1: 5px; @val2: 5px; @val3: 5px; @val4: 5px) {
+  	-webkit-border-radius: @val1 @val2 @val3 @val4;
+  	-moz-border-radius: @val1 @val2 @val3 @val4;
+  	-ms-border-radius: @val1 @val2 @val3 @val4;
+  	-o-border-radius: @val1 @val2 @val3 @val4;
+  	border-radius: @val1 @val2 @val3 @val4;
 }
 .box-shadow(@px: 10px; @color:#aaa) {
 	-moz-box-shadow: 0 0 @px @color; 
@@ -77,12 +77,12 @@ body { background: url('@{base_url}images/background-gray.png')  repeat-x center
 		&:hover{
 			color: #333;
 			background: #fff;
-			.border-radius(12px);
+			.border-radius(12px;12px;12px;12px);
 		}
 		.active{
 			color: #333;
 				background: #fff;
-				.border-radius(12px);
+				.border-radius(12px;12px;12px;12px);
 		}
 	}
 }
@@ -197,7 +197,7 @@ h2{
 	border: 1px solid #44B50B;
 	background: url('@{base_url}images/back-btn-green.png')  left center #6BC935;
 	cursor: pointer;
-    .border-radius(6px);
+    .border-radius(6px;6px;6px;6px);
 }
 .clear 		  {clear:both}
 .col2 		  {width: 350px; float: left}
@@ -242,9 +242,9 @@ h2{
 	.other 		{ background: url('@{base_url}images/bullet-other.png') no-repeat 0px center}
 }
 
-.round 			{ .border-radius(6px); }
-.round-top  	{ .border-radius(6px); }
-.round-bottom 	{ .border-radius(6px); }
+.round 			{ .border-radius(6px;6px;6px;6px); }
+.round-top  	{ .border-radius(6px;6px;0;0); }
+.round-bottom 	{ .border-radius(0;0;6px;6px); }
 
 .section{
 	padding: 2px 2px 20px 2px;
