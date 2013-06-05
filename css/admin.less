@@ -1,0 +1,55 @@
+@base_url: 'http://localhost/JuegosNacionales/';
+
+/* =========================*/
+/* CSS Layouts              */
+/* =========================*/
+#frm_login{
+	width: 320px;
+	padding: 10px;
+	text-align: left;
+	border: 1px solid #ccc;
+	label {
+		width: 90px; 
+		float: left; 
+		margin-top: 4px
+	}
+	input {width: 200px}
+	.btn {
+		width: 100px; 
+		position: relative; 
+		float: left; 
+		left: 120px; 
+		letter-spacing: 0.1em; 
+		margin-top: 5px
+	}
+}
+/* =========================*/
+/* CSS Styles               */
+/* =========================*/
+form 	{position: relative}
+h2 		{margin: 0; padding: 0}
+input 	{margin-right: 20px}
+
+.group {
+	position: relative; 
+	text-align: left; 
+	padding: 2px 2px 4px 2px; 
+	margin: 10px 0; 
+	background: #fcfcfc; 
+	border: 1px solid #fafafa;
+	b {padding-left: 3px}	
+}
+.notify-ok 		{background: url('@{base_url}/images/ico-tick.png') no-repeat 5px center #B9DE81; border: 1px solid #9FBF6F}
+.notify-info 	{background: url('@{base_url}/images/ico-info.png') no-repeat 5px center; color: #7FACD7}
+.notify-alert 	{background: url('@{base_url}/images/ico-alert.png') no-repeat 5px center; color: #EB8D00; padding-left: 23px;}
+.section-title{
+	margin: 10px 0;
+	padding: 5px 10px;
+	color: #111;
+	text-align: left;
+	text-shadow: 0.09em 0.09em #ccc;
+	background: url('@{base_url}/images/back-gray-gradient.png') repeat-x left bottom #fff;
+	border: 1px solid #ccc;
+}
+
+.upper{text-transform: uppercase}

@@ -15,49 +15,47 @@ class Eventos extends CI_Controller {
 	}
 	
 	public function calendario($sport='Futbol'){
-		if($sport=='Declamaci%C3%B3n')
-			$sport='Declamación';
-		$data['events'] = $this->schedule($sport);
-		$data['sedes']=$this->eventmodel->get_sedes();
-		$data['username']=$this->session->userdata('username');	
-		$data['sports']=$this->eventmodel->get_sport();        
-		$data['sportName']=  mb_strtoupper($sport, 'UTF-8');
-		$data['title']="Calendario";
-        $data['style']="events.css";
-		if($sport=='Oratoria' || $sport=='Declamación' || $sport=='Ajedrez')
-			$data['content']= 'events/no-schedule';
+		
+		$data['events']      = $this->schedule($sport);
+		$data['sedes']       = $this->eventmodel->get_sedes();
+		$data['username']    = $this->session->userdata('username');	
+		$data['sports']      = $this->eventmodel->get_sport();        
+		$data['sportName']   = mb_strtoupper($sport, 'UTF-8');
+		$data['title']       = "Calendario";
+        $data['style']       = "events";
+		if($sport == 'Ajedrez')
+			$data['content'] = 'events/no-schedule';
 		else
-			$data['content']="events/schedule";
+			$data['content'] = "events/schedule";
 			
-		$data['leftcolumn']="events/events-left-column";
+		$data['leftcolumn']  = "events/events-left-column";
                 
 		$this->load->view('includes/template',$data);
 	}
 	
-	public function schedule($sport='Futbol'){
+	public function schedule($sport = 'Futbol'){
 		return $this->eventmodel->get_event_x_sport($sport);
-	}
+	} 
         
-	public function register($msg=''){
+	public function register($msg = ''){
            
-            if($this->session->userdata('userType')!= COORDINATOR_NATIONAL) //4
+            if($this->session->userdata('userType') != COORDINATOR_NATIONAL)
                 redirect('/login/redir_section/'.$this->session->userdata('userType'), 'refresh');
             
-           $data['username']=$this->session->userdata('username');
+           $data['username'] = $this->session->userdata('username');
                 
-        $data['title']="";
-        $data['style']='events.css';
-		
-            $data['sports']=$this->eventmodel->get_sport();        
-            $data['events']=$this->eventmodel->get_event_x_sport('FUTBOL');
-            $data['sedes']= $this->eventmodel->get_sedes();
+            $data['title']  =   "";
+            $data['style']  =   'events';		
+            $data['sports'] =   $this->eventmodel->get_sport();        
+            $data['events'] =   $this->eventmodel->get_event_x_sport('FUTBOL');
+            $data['sedes']  =   $this->eventmodel->get_sedes();
         
 		if($msg){
-				$notify = array('msg'=>'<b>'.$msg.'</b>','type'=>'ok');
-				$data['notification']=$notify;
+			$notify = array('msg'=>'<b>'.$msg.'</b>','type'=>'ok');
+			$data['notification']   =   $notify;
 		}
-        $data['content']="events/register_event";
-		$data['leftcolumn']="events/events-left-column";
+        $data['content']      =   "events/register_event";
+		$data['leftcolumn']   =   "events/events-left-column";
                 
 		$this->load->view('includes/template',$data);  
 	}
@@ -66,17 +64,17 @@ class Eventos extends CI_Controller {
              if($this->session->userdata('userType')!= COORDINATOR_NATIONAL)
                 redirect('/eventos/calendario', 'refresh');
 				
-			   $data['username']=$this->session->userdata('username');
+			   $data['username'] =   $this->session->userdata('username');
 					
-			$data['title']="";
-			$data['style']='sign-up.css';
+			$data['title']   =  "";
+			$data['style']   =   'sign-up';
 			
-				$data['sports']=$this->eventmodel->get_sport();        
-				$data['events']=$this->eventmodel->get_event_x_sport('FUTBOL');
-				$data['sedes']= $this->eventmodel->get_sedes();
+				$data['sports'] =   $this->eventmodel->get_sport();        
+				$data['events'] =   $this->eventmodel->get_event_x_sport('FUTBOL');
+				$data['sedes']  =   $this->eventmodel->get_sedes();
 			if($msg){
 				$notify = array('msg'=>'<b>'.$msg.'</b>','type'=>'ok');
-				$data['notification']=$notify;
+				$data['notification']   =   $notify;
 			}
 			$data['content']="events/assign_event";
 			$data['leftcolumn']="events/events-left-column";
@@ -91,18 +89,17 @@ class Eventos extends CI_Controller {
            $data['username']=$this->session->userdata('username');
 		   if($msg){
 				$notify = array('msg'=>'<b>'.$msg.'</b>','type'=>'ok');
-				$data['notification']=$notify;
+				$data['notification']   =   $notify;
 			}                
-			$data['title']="Registrar Marcador";
-			$data['style']='sign-up.css';
+			$data['title']   =   "Registrar Marcador";
+			$data['style']   =   'sign-up';
 		
-            $data['sports']=$this->eventmodel->get_sport();        
-            $data['sedes']= $this->eventmodel->get_sedes();
+            $data['sports']  =   $this->eventmodel->get_sport();        
+            $data['sedes']   =   $this->eventmodel->get_sedes();
          
 	
-        $data['content']="events/add_score";
-       
-		$data['leftcolumn']="events/events-left-column";
+            $data['content']     =  "events/add_score";       
+		    $data['leftcolumn']  =  "events/events-left-column";
                 
 		$this->load->view('includes/template',$data);  
         }
@@ -111,36 +108,28 @@ class Eventos extends CI_Controller {
              if($this->session->userdata('userType')!= COORDINATOR_NATIONAL)
                 redirect('/eventos/calendario', 'refresh');
             
-           $data['username']=$this->session->userdata('username');
+           $data['username']    =   $this->session->userdata('username');
                 
-        $data['title']="";
-        $data['style']='sign-up.css';
-		
-            $data['sports']=$this->eventmodel->get_sport();        
-            $data['sedes']= $this->eventmodel->get_sedes();
-         
-	
-        $data['content']="events/edit_event";
-       
-		$data['leftcolumn']="events/events-left-column";
+            $data['title']  =   "";
+            $data['style']  =   'sign-up';		
+            $data['sports'] =   $this->eventmodel->get_sport();        
+            $data['sedes']  =   $this->eventmodel->get_sedes();         
+	        $data['content']      =   "events/edit_event";       
+	   	    $data['leftcolumn']   =   "events/events-left-column";
                 
-		$this->load->view('includes/template',$data);  
+		    $this->load->view('includes/template',$data);  
         }
         
         public function edit_up(){
                
                     
             $this->form_validation->set_rules('event', 'Evento', 'required');
-	  $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-            if ($this->form_validation->run() == false)
-		{
-                      $this->edit();
-                 }
-		else
-		{
-                    
-                   if($_POST['event'] && @$_POST['update'])
-                   {
+	        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+            if($this->form_validation->run() == false){
+                $this->edit();
+            }
+            else{                
+                   if($_POST['event'] && @$_POST['update']){
                         $event = array();
                         
                         if($_POST['sede'])
@@ -155,17 +144,16 @@ class Eventos extends CI_Controller {
                         if($_POST['team-two'])
                             $event['idteamTwo'] = $_POST['team-two'];
                      
-                        if($_POST['year'] || $_POST['month'] || $_POST['day'] || $_POST['hour'] || $_POST['minute'])
-                        {
-                                $dateTimeEvent='';
-                                $result=$this->eventmodel->get_event($_POST['event']);
-                                $dateTime=$result[0]->dateTimeEvent;
+                        if($_POST['year'] || $_POST['month'] || $_POST['day'] || $_POST['hour'] || $_POST['minute']){
+                                $dateTimeEvent  = '';
+                                $result     =   $this->eventmodel->get_event($_POST['event']);
+                                $dateTime   =   $result[0]->dateTimeEvent;
 
-                                $year=substr($dateTime,0,4);
-                                $month=substr($dateTime,5,2);
-                                $day=substr($dateTime,8,2);
-                                $hour=substr($dateTime,11,2);
-                                $minute=substr($dateTime,14,2);
+                                $year   =   substr($dateTime,0,4);
+                                $month  =   substr($dateTime,5,2);
+                                $day    =   substr($dateTime,8,2);
+                                $hour   =   substr($dateTime,11,2);
+                                $minute =   substr($dateTime,14,2);
                                 
                             if($_POST['year'] && $_POST['year'] != $year)
                                     $dateTimeEvent=$_POST['year'];
@@ -282,23 +270,23 @@ class Eventos extends CI_Controller {
         public function get_sports(){
 
             $data['tag']= array(
-                    'id'=>'idsport',
-                    'name'=>'sportName');
+                        'id'=>'idsport',
+                        'name'=>'sportName');
              $data['arr']=$this->eventmodel->get_sport();
              $this->load->view('includes/select',$data);
        }
        public function get_teams_by_group($idgroup=0){
 
-            $data['tag']= array(
-                    'id'=>'idassignation',
-                    'name'=>'assignationVarName');
-             $data['arr']=$this->eventmodel->get_group($idgroup);
+            $data['tag'] = array(
+                    'id' => 'idassignation',
+                    'name' => 'assignationVarName');
+             $data['arr'] = $this->eventmodel->get_group($idgroup);
              $this->load->view('includes/select',$data);
        }
        public function get_groups($idsportcategory=0){
-            $data['tag']= array(
-                    'id'=>'idgroup',
-                    'name'=>'groupName');
+            $data['tag'] = array(
+                    'id' => 'idgroup',
+                    'name' => 'groupName');
              $data['arr']=$this->eventmodel->get_groups($idsportcategory);
              $this->load->view('includes/select',$data);
        }
@@ -321,37 +309,37 @@ class Eventos extends CI_Controller {
        
         public function get_events($idsportcategory=0){
 
-            $data['tag']= array(
-                    'id'=>'idevent',
-                    'name'=>'name');
-             $data['arr']=$this->eventmodel->get_events($idsportcategory);
+            $data['tag'] = array(
+                        'id'=>'idevent',
+                        'name'=>'name');
+             $data['arr']   =   $this->eventmodel->get_events($idsportcategory);
              $this->load->view('includes/select',$data);
        }
 	   
         public function get_events_no_record($idsportcategory=0){
 
-            $data['tag']= array(
-                    'id'=>'idevent',
-                    'name'=>'name');
-             $data['arr']=$this->eventmodel->get_events_no_record($idsportcategory);
+            $data['tag'] = array(
+                        'id'=>'idevent',
+                        'name'=>'name');
+             $data['arr']   =   $this->eventmodel->get_events_no_record($idsportcategory);
              $this->load->view('includes/select',$data);
        }
 	   
         public function get_team_one($idevent=0){
-            $data['tag']= array(
-                    'id'=>'idteamOne',
-                    'name'=>'name');
-             $data['arr']=$this->eventmodel->get_team_one($idevent);
-			 $data['unique']='unique';
+            $data['tag'] = array(
+                        'id'=>'idteamOne',
+                        'name'=>'name');
+             $data['arr']    =   $this->eventmodel->get_team_one($idevent);
+			 $data['unique'] =    'unique';
              $this->load->view('includes/select',$data);
        }
 	   
         public function get_team_two($idevent=0){
-            $data['tag']= array(
-                    'id'=>'idteamTwo',
-                    'name'=>'name');
-             $data['arr']=$this->eventmodel->get_team_two($idevent);
-             $data['unique']='unique';
+            $data['tag'] = array(
+                        'id'=>'idteamTwo',
+                        'name'=>'name');
+             $data['arr']    = $this->eventmodel->get_team_two($idevent);
+             $data['unique'] = 'unique';
              $this->load->view('includes/select',$data);
        }
 }

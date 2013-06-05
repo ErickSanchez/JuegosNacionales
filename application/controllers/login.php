@@ -4,17 +4,17 @@ class Login extends CI_Controller {
 
 	
 	function __construct(){
-		parent::__construct();
-		
+		parent::__construct();		
 		$this->load->helper('form');
 	}
+	
 	function index(){
             
 		if($this->session->userdata('logged_in'))
 			redirect('/login/redir_section/'.$this->session->userdata('userType'), 'refresh');
                 
 		$data['title']="Iniciar Sesión";
-		$data['style']="admin.css";
+		$data['style']="admin";
 		$data['content']="login";
 		$data['leftcolumn']="left-column";
 		$this->load->view('includes/template',$data);
@@ -91,19 +91,18 @@ class Login extends CI_Controller {
 		$this->load->model('usermodel');
 		if(isset($_POST['username']) && isset($_POST['password']))
                  {
-			$data['status']=$this->usermodel->validate_user($_POST['username'],$_POST['password']);
-			$userType=$this->usermodel->get_userType($_POST['username'],$_POST['password']);
+			$login 	=	$this->usermodel->validate_user($_POST['username'],$_POST['password']);
 				
-			if($data['status']->find)
+			if($login->find)
                         {
 				$userdata = 	array(
 							   'username'  => $_POST['username'],
-							   'userType'  => $userType->iduserType,
+							   'userType'  => $login->iduserType,
 							   'logged_in' => TRUE
 							);
 				$this->session->set_userdata($userdata);
 
-				$this->redir_section($userType->iduserType);
+				$this->redir_section($login->iduserType);
 			}
 			else
 				redirect('/login/error/102', 'refresh');
@@ -121,7 +120,7 @@ class Login extends CI_Controller {
 			default: $notify = array('msg'=>'Error','type'=>'error'); break;
 		}
 		$data['title']="Iniciar Sesión";
-		$data['style']="admin.css";
+		$data['style']="admin";
 		$data['content']="login";
 		$data['notification']=$notify;
 		$data['leftcolumn']="left-column";

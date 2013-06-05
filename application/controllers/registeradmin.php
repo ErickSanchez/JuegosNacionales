@@ -31,7 +31,7 @@ class Registeradmin extends CI_Controller {
 		}
 
         $data['title']="Resumen de Selecciones ";
-		$data['style']='state-admin.css';
+		$data['style']='state-admin';
 		$data['leftcolumn']="registeradmin-left-column";
 		$data['searchForm'] = $this->load->view('registeradmin-search-form',$data, true);
         $data['content']="register-admin";
@@ -62,7 +62,7 @@ class Registeradmin extends CI_Controller {
 		}
 
         $data['title']="Resumen de Selecciones ";
-		$data['style']='state-admin.css';
+		$data['style']='state-admin';
 		$data['leftcolumn']="registeradmin-left-column";
         $data['content']="registeradmin-nacional-teams";
                 
@@ -141,7 +141,7 @@ class Registeradmin extends CI_Controller {
                 
                 $data['username']=$this->session->userdata('username');
 		$data['title']="Buscar";
-		$data['style']='state-admin.css';
+		$data['style']='state-admin';
 		$data['leftcolumn']="registeradmin-left-column";
 		$data['searchForm'] = $this->load->view('registeradmin-search-form',$data, true);
             $data['content']="search-registeradmin";
