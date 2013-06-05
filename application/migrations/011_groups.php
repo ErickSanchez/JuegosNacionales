@@ -1,11 +1,12 @@
 <?php
 include_once('mymigration.php');
-    class Migration_Usertype extends MyMigration {
+    class Migration_Groups extends MyMigration {
 
         function up(){
-            $table = 'usertype';
+        	
+            $table = 'groups';
 	        
-            $iduserType = array(
+            $idgroup = array(
                 'type'           => 'int',
                 'constraint'     => 11,
                 'unsigned'       => TRUE,
@@ -13,13 +14,15 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
-            $userTypeName = array(
+            $groupName = array(
                 'type'       => 'varchar',
-                'constraint' => 45);
+                'constraint' => 2,
+                'null' => TRUE
+                );
 
             $fields = array(
-                'iduserType'    => $iduserType,
-                'userTypeName'  => $userTypeName);
+                'idgroup' => $idgroup,
+                'groupName' => $groupName);
 
             $config = array(
                 'table'  => $table,
@@ -29,7 +32,7 @@ include_once('mymigration.php');
             $this->create_table($config);
         }
         function down(){
-        	$this->dbforge->drop_table('usertype');
+        	$this->dbforge->drop_table('groups');
         }
     }
 ?>

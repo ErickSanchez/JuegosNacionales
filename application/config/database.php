@@ -67,7 +67,7 @@ $db['default']['stricton'] = FALSE;
 
 $db['test']['hostname'] = 'localhost';
 $db['test']['username'] = 'root';
-$db['test']['password'] = 'admin';
+$db['test']['password'] = '';
 $db['test']['database'] = "juegosnacionales_test";
 $db['test']['dbdriver'] = "mysql";
 $db['test']['dbprefix'] = '';

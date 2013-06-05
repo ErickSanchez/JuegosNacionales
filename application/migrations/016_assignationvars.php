@@ -1,11 +1,12 @@
 <?php
 include_once('mymigration.php');
-    class Migration_Usertype extends MyMigration {
+    class Migration_Assignationvars extends MyMigration {
 
         function up(){
-            $table = 'usertype';
+        	
+            $table = 'assignationvars';
 	        
-            $iduserType = array(
+            $idassignationvars = array(
                 'type'           => 'int',
                 'constraint'     => 11,
                 'unsigned'       => TRUE,
@@ -13,13 +14,14 @@ include_once('mymigration.php');
                 'auto_increment' => TRUE,
                 'primary_key'    => TRUE);
 
-            $userTypeName = array(
-                'type'       => 'varchar',
-                'constraint' => 45);
+            $assignationvarName = array(
+                'type'       => 'char',
+                'constraint' => 2,
+                'null'       => TRUE);
 
             $fields = array(
-                'iduserType'    => $iduserType,
-                'userTypeName'  => $userTypeName);
+                'idassignationvars' => $idassignationvars,
+                'assignationvarName' => $assignationvarName);
 
             $config = array(
                 'table'  => $table,
@@ -29,7 +31,7 @@ include_once('mymigration.php');
             $this->create_table($config);
         }
         function down(){
-        	$this->dbforge->drop_table('usertype');
+        	$this->dbforge->drop_table('assignationvars');
         }
     }
 ?>
