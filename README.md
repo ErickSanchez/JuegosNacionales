@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-Migrations
-=======
->>>>>>> master
-=======
-
-Fixtures
->>>>>>> master
 ===============
 JuegosNacionales
 ================
