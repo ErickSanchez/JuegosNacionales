@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<<<<<<< HEAD
+      <meta charset="utf-8" >
+      <meta NAME="keywords" CONTENT="">
+      <meta NAME="description" CONTENT="">
+      <meta NAME="revisit-after" CONTENT="15 days">
+      <meta NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+      <meta NAME="ROBOTS" CONTENT="INDEX, ALL">
+      <meta NAME="distribution" CONTENT="global">
+      <title><?= $title.' :: '.SITE_NAME;?></title>
+      <link rel="stylesheet" href="<?= base_url('css/style.css');?>" type="text/css" />
+     <?php 
+     	if(isset($style)) 
+     		echo '<link  rel="stylesheet" href="'.base_url('css/'.$style).'" type="text/css" />';
+     ?>
+=======
       <meta charset="utf-8"/>      
       <meta NAME="distribution" CONTENT="global"/>
       <title><?= $title.' :: '.SITE_NAME;?></title>      
       <link rel="stylesheet/less" type="text/css" href="<?= base_url('css/style.less');?>"  />
      <?= isset($style) ?'<link  rel="stylesheet/less" type="text/css" href="'.base_url('css/'.$style.'.less').'" />': '';?>
       <script type="text/javascript" src="<?= base_url('js/less.js');?>"></script>      
+>>>>>>> master
       <script type="text/javascript" src="<?= base_url('js/jquery-1.7.1.min.js');?>"></script>      
 	  <?php if(isset($notification)){?>
 		<script>
