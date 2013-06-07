@@ -23,14 +23,14 @@ class Usermodel extends CI_Model{
 	}
 	
 	function get_userType($username){
-		return $this->db->query("SELECT iduserType FROM user WHERE username='$username'")->row();
+		return $this->db->query("SELECT iduserType FROM user WHERE username = '$username'")->row();
 	}
 	
 	function new_user($userType,$username,$pass){
 		return $this->db->query("INSERT INTO user (username,iduserType,userPassword) VALUES ('$username',$userType,md5('$pass'))");
 	}
 	
-	function validate_user($username,$pass){
-		return @$this->db->query("SELECT COUNT(*) AS find FROM user WHERE username='$username' AND userPassword=MD5('$pass')")->row();
+	function validate_user($username,$password){
+		return $this->db->query("SELECT COUNT(*) AS find,iduserType FROM user WHERE username='$username' AND userPassword=MD5('$password')")->row();
 	}
 }

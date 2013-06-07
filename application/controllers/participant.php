@@ -6,7 +6,7 @@ class Participant extends CI_Controller{
         parent::__construct();
 
         if(!$this->session->userdata('logged_in'))
-			redirect('/login', 'refresh');
+			     redirect('/login', 'refresh');
 
         $this->load->helper('form');
         $this->load->library(array('form_validation','upload','validate'));
@@ -51,7 +51,7 @@ class Participant extends CI_Controller{
             
 		$data['states']=$this->stateadminmodel->get_states(-1);
 
-		$data['style']='sign-up.css';
+		$data['style']='sign-up';
                 $data['ed']=true;
 		$data['leftcolumn']="left-column-state";
 		$data['content']="participant_edit";
@@ -74,7 +74,7 @@ class Participant extends CI_Controller{
         {
 		
 		$data['title']="Actualizando informacion...";
-			$data['style']='state-admin.css';
+			$data['style']='state-admin';
 			$data['leftcolumn']="left-column-state";
 			$data['content']="uploader";
 			$this->load->view('includes/template',$data);

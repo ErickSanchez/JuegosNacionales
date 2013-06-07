@@ -15,7 +15,7 @@ class Sedes extends CI_Controller {
 		$data['sedes']=$this->eventmodel->get_sedes();
 		$data['username']=$this->session->userdata('username');
 		$data['title']="Sedes";
-		$data['style']="index.css";
+		$data['style']="index";
 		if($idsede!=0)
 			$data['slider']="gMaps-".$idsede;
 		else

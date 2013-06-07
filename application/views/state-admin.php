@@ -54,12 +54,12 @@ $(function(){
 		</div>
 		<div class="clear"></div>
 
-  <?php echo form_close(); ?>
+  <?= form_close(); ?>
       </div>
   <?php } ?>
 
 	<div id="teams-area">
-		<h3 class="section-title round">Selecciones Registradas en <?php echo $state->stateName; ?></h3>
+		<h3 class="section-title round">Selecciones Registradas en <?= isset($state->stateName)? $state->stateName : ''; ?></h3>
 		<table id="teams" class="table-list" cellspacing="0">
 			<tr>
 				<th width="16"></th>

@@ -37,7 +37,7 @@ class Signup extends CI_Controller {
             $data=$this->validate($team,$sport);
 
              $data['title']="Registro de Director Tecnico";
-			$data['style']='sign-up.css';
+			$data['style']='sign-up';
 			$data['leftcolumn']="left-column";
                 $data['content']="sign-up";
                 $data['coach']=1;
@@ -51,7 +51,7 @@ class Signup extends CI_Controller {
 			$data['states']=$this->stateadminmodel->get_states(-1);
 
             $data['title']="Registro de Participante";
-			$data['style']='sign-up.css';
+			$data['style']='sign-up';
 			$data['leftcolumn']="left-column";
             $data['content']="sign-up";
             $data['coach']=0;
