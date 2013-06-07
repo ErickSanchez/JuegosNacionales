@@ -45,7 +45,7 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'test';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
@@ -65,5 +65,20 @@ $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
 
+$db['test']['hostname'] = 'localhost';
+$db['test']['username'] = 'root';
+$db['test']['password'] = 'admin';
+$db['test']['database'] = "juegosnacionales_test";
+$db['test']['dbdriver'] = "mysql";
+$db['test']['dbprefix'] = '';
+$db['test']['pconnect'] = FALSE;
+$db['test']['db_debug'] = TRUE;
+$db['test']['cache_on'] = FALSE;
+$db['test']['cachedir'] = '';
+$db['test']['char_set'] = 'utf8';
+$db['test']['dbcollat'] = 'utf8_general_ci';
+$db['test']['swap_pre'] = '';
+$db['test']['autoinit'] = TRUE;
+$db['test']['stricton'] = FALSE;
 /* End of file database.php */
 /* Location: ./application/config/database.php */
